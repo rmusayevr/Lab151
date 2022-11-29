@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%} {{ product.title }} {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/style-prefix.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<main>
+
+  
+
+  <div class="product-container">
+
+    <div class="container">
+      <div class="product-box">
+        <div class="product-minimal">
+        </div>
+        <div class="product-main">
+          <div class="container mt-5 mb-5">
+            <div class="card">
+              <div class="row g-0">
+                <div class="col-md-6 border-end">
+                  <div class="d-flex flex-column justify-content-center">
+                    <div class="main_image"> <img src="{{product.get_visual_product.cover_image.url}}" id="main_product_image" width="350">
+                    </div>
+                    <div class="thumbnail_images">
+                      <ul id="thumbnail">
+                        {% for image in product.get_visual_product.product_image.all %}
+                        <li>
+                          <img onclick="changeImage(this)" src="{{image.image.url}}" width="70">
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h3>{{ product.title }}</h3>
+                      <span class="heart">
+                        <i class='bx bx-heart'></i>
+                      </span>
+                    </div>
+                    <div class="mt-2 pr-3 content">
+                      <p>{{ product.description }}</p>
+                    </div>
+                    <div class="price-box">
+                      {% if product.get_visual_product.is_sale %}
+                      <p class="price">₼{{ product.get_visual_product.get_price }}</p>
+                      <del>₼{{ product.get_visual_product.price }}</del>
+                      {% else %}
+                      <p class="price">₼{{ product.get_visual_product.price }}</p>
+                      {% endif %}
+                    </div>
+                    <div class="ratings d-flex flex-row align-items-center">
+                      <div class="d-flex flex-row">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bx-star'></i>
+                      </div>
+                      {% if product.product_reviews.count > 1 %}
+                      <span>{{ product.product_reviews.count }} reviews</span>
+                      {% else %}
+                      <span>{{ product.product_reviews.count }} review</span>
+                      {% endif %}
+                    </div>
+                    <div class="mt-5">
+                      <span class="fw-bold">Color</span>
+                      <div class="colors">
+                        <ul id="marker">
+                          <li style="background-color: {{ option.name }}; border:1px solid black;"></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="buttons d-flex flex-row mt-5 gap-3">
+                      <button class="btn btn-outline-dark rounded-4" onclick="window.open('{% url 'cart' %}', '_self');">Buy Now</button>
+                      <button class="btn btn-dark addCart rounded-4" id="{{ product.get_visual_product.pk }}" type="button">Add to Basket</button> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="product-main">
+      <h2 class="title">Related products</h2>
+      <div class="product-grid">
+        {% for product in related_products %}
+        <div class="showcase">
+          <div class="showcase-banner">
+            <a href="{% url 'product-detail' product.id %}">
+              <img src="{{ product.get_visual_product.cover_image.url }}" alt="{{product.title}}" width="300" class="product-img default">
+              {% if product.get_visual_product.cover_image_2 %}
+              <img src="{{ product.get_visual_product.cover_image_2.url }}" alt="{{product.title}}" width="300" class="product-img hover">
+              {% else %}
+              <img src="{{ product.get_visual_product.cover_image.url }}" alt="{{product.title}}" width="300" class="product-img hover">
+              {% endif %}
+             </a>
+            <p class="showcase-badge angle black">sale</p>
+            <div class="showcase-actions">
+              <button class="btn-action">
+                <ion-icon name="eye-outline"></ion-icon>
+              </button>
+              <button class="btn-action">
+                <ion-icon name="bag-add-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+          <div class="showcase-content">
+            <a href="#" class="showcase-category">{{ product.category.first }}</a>
+            <h3>
+              <h3 class="showcase-title">{{ product.title }}</h3>
+            </h3>
+            <div class="showcase-rating">
+              {% for i in product.get_star_ratings %}
+              <ion-icon name="star"></ion-icon>
+              {% endfor %}
+              {% for i in product.get_nonstar_ratings %}
+              <ion-icon name="star-outline"></ion-icon>
+              {% endfor %}
+            </div>
+            <div class="price-box">
+              {% if product.is_sale %}
+              <p class="price">{{ product.get_price }}</p>
+              <del>{{ product.price }}</del>
+              {% else %}
+              <p class="price">{{ product.price }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+  function changeImage(element) {
+
+    var main_prodcut_image = document.getElementById('main_product_image');
+    main_prodcut_image.src = element.src;
+  }
+</script>
+{% endblock content %}

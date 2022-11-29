@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%} Lab151 {% endblock title %}
+
+
+{% block content %}
+
+
+<style>
+  .slider-item:last-child .banner-img { -o-object-position: center!important; object-position: center!important; }
+
+</style>
+
+
+  <!--
+    - MAIN
+  -->
+
+  <main>
+
+    <!--
+      - BANNER
+    -->
+
+    <div class="banner">
+      <div class="container">
+        <div class="slider-container has-scrollbar">
+
+      {% for banner in slider %}
+          <div class="slider-item">
+            <img src="{{ banner.slider.url }}" alt="women's latest fashion sale" class="banner-img">
+          </div> 
+      {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!--
+      - CATEGORY
+    -->
+
+    {% include 'includes/brands_section.html' %}
+
+    <div class="product-container">
+      <div class="container">
+        <div class="product-box"> 
+          <div class="product-minimal">
+          </div>
+          <div class="product-main">
+            <h2 class="title">Products</h2>
+            {% for i in banner %}
+            <div class="long_banner1">
+              <img src="{{ i.banner_small1.url }}" alt="" style="width:200px;">
+              <img src="{{ i.banner_small2.url }}" alt="" style="width:200px;">
+            </div>
+            {% endfor %}
+            {% for j in banner %}
+            <div class="long_banner2">
+              <img src="{{ j.banner_small3.url }}" alt="" style="width: 200px;">
+              <img src="{{ j.banner_small4.url }}" alt="" style="width: 200px;">
+            </div>
+            {% endfor %}
+            <div class="product-grid" id="product-list">
+              {% for product in products %}
+              <div class="showcase">
+                <div class="showcase-banner">
+                 <a href="{{ product.get_absolute_url }}">
+                  <img src="{{ product.get_visual_product.cover_image.url }}" alt="{{product.title}}" width="300" class="product-img default">
+                  {% if product.get_visual_product.cover_image_2 %}
+                  <img src="{{ product.get_visual_product.cover_image_2.url }}" alt="{{product.title}}" width="300" class="product-img hover">
+                  {% else %}
+                  <img src="{{ product.get_visual_product.cover_image.url }}" alt="{{product.title}}" width="300" class="product-img hover">
+                  {% endif %}
+                 </a>
+                  </a>
+                  <!-- <p class="showcase-badge">15%</p> -->
+                  
+                </div>
+                <div class="showcase-content">
+                  <a href="#" class="showcase-category">{{ product.category.first }}</a>
+                  <a href="{{ product.get_absolute_url }}">
+                    <h3 class="showcase-title">{{ product.title }}</h3>
+                  </a>
+                  <div class="showcase-rating">
+                    {% for i in product.get_star_ratings %}
+                    <ion-icon name="star"></ion-icon>
+                    {% endfor %}
+                    {% for i in product.get_nonstar_ratings %}
+                    <ion-icon name="star-outline"></ion-icon>
+                    {% endfor %}
+                  </div>
+                  <div class="price-box">
+                    {% if product.get_visual_product.is_sale %}
+                    <p class="price">₼{{ product.get_visual_product.get_price }}</p>
+                    <del>₼ {{ product.get_visual_product.price }}</del>
+                    {% else %}
+                    <p class="price">₼{{ product.get_visual_product.price }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="see_more">
+            <button type="submit" class="show-more-btn rounded-4" id="seeMore">See More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+      - TESTIMONIALS, CTA & SERVICE
+    -->
+        <div>
+          <div class="container">
+            <div class="testimonials-box">
+                <h2 class="title">Blog</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+    <!--
+      - BLOG
+    -->
+  <div class="blog">
+    <div class="container">
+      <div class="blog-container has-scrollbar">
+        {% for blog in blogs %}
+          <div class="blog-card/">
+            <a href="{% url 'blog' %}#{{ blog.id }}">
+              <img src="{{ blog.image_small.url }}" alt="{{ blog.title }}" width="300" class="blog-banner">
+            </a>
+            <div class="blog-content">
+              <a href="{% url 'blog' %}#{{ blog.id }}">
+                <h3 class="blog-title">{{ blog.title }}.</h3>
+              </a>
+              <p class="blog-meta">
+                By <cite>{{ blog.author.first_name }}</cite> / <time datetime="2022-04-06">{{ blog.created_at }}</time>
+              </p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  </main>
+
+
+
+  <!--
+    - FOOTER
+  -->
+
+  {% endblock content %}
+
+  {% block js %}
+    <script src="{% static 'js/showMore.js' %}"></script>
+  {% endblock %}

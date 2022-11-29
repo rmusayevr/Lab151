@@ -1,0 +1,198 @@
+<nav class="desktop-navigation-menu">
+    <div class="container">
+        <ul class="desktop-menu-category-list">
+            <li class="menu-category">
+                <a href="" class="menu-title">Brands</a>
+                <ul class="dropdown-list">
+                    {% for brand in brands %}
+                    <li class="dropdown-item">
+                        <a href="{% url 'brand' brand.pk %}">{{brand.name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% for category in categories %}
+            <li class="menu-category">
+                <a href="#" data="{{category.id}}" class="menu-title categories">{{category.name}}</a>
+                {% if category.get_children.all %}
+                <ul class="dropdown-list">
+                    {% for child in category.get_children %}
+                    <li class="dropdown-item">
+                        <a href="#" data="{{child.id}}" class="categories">{{child.name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+
+<div class="mobile-bottom-navigation">
+
+    <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
+    
+    <button class="action-btn">
+        <ion-icon name="home-outline" onclick="window.open('{% url 'home' %}', '_self');"></ion-icon>
+    </button>
+    
+    {% if user.is_authenticated %}
+        <button class="action-btn" onclick="window.open('{% url 'cart' %}', '_self');">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span class="count-mobile" id="{{ quantity }}">{{ quantity }}</span>
+        </button>
+        <button class="action-btn" onclick="window.open('{% url 'logout' %}', '_self');">
+            <ion-icon name="log-out-outline"></ion-icon>
+        </button>
+    {% else %}
+        <button class="action-btn" onclick="window.open('{% url 'login_page' %}', '_self');">
+            <ion-icon name="person-outline"></ion-icon>
+        </button>
+    {% endif %}
+    <!-- <button class="action-btn" data-mobile-menu-open-btn onclick="window.open('{% url 'login_page' %}', '_self');">
+        <ion-icon name="person-outline"></ion-icon>
+    </button> -->
+
+</div>
+
+<nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+    <div class="menu-top">
+        <h2 class="menu-title">Menu</h2>
+
+        <button class="menu-close-btn" data-mobile-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+    </div>
+
+    <ul class="mobile-menu-category-list">
+
+        <li class="menu-category">
+            <a href="{% url 'home' %}" class="menu-title">Home</a>
+        </li>
+
+        <li class="menu-category">
+
+            <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Brands</p>
+
+                <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+                {% for brand in brands %}
+                    <li class="submenu-category">
+                        <a href="{% url 'brand' brand.pk %}" class="submenu-title">{{ brand.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </li>
+        {% for category in categories %}
+            <li class="menu-category">
+                
+                <button class="accordion-menu" data-accordion-btn>
+                    <a href="#" data="{{category.id}}" class="menu-title categories">{{category.name}}</a>
+                    <div>
+                        <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                        <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                    </div>
+                </button>
+                {% if category.get_children.all %}
+                <ul class="submenu-category-list">
+                    {% for child in category.get_children %}
+                    <li class="submenu-category">
+                        <a href="#" data="{{child.id}}" class="submenu-title">{{child.name}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        
+
+        <li class="menu-category">
+            <a href="{% url 'blog' %}" class="menu-title">Blog</a>
+        </li>
+
+    </ul>
+
+    <div class="menu-bottom">
+
+        <ul class="menu-category-list">
+
+            <li class="menu-category">
+
+                <button class="accordion-menu" data-accordion-btn>
+                    <p class="menu-title">Language</p>
+
+                    <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+                </button>
+
+                <ul class="submenu-category-list" data-accordion>
+
+                    <li class="submenu-category">
+                        <a href="#" class="submenu-title">English</a>
+                    </li>
+
+                    <li class="submenu-category">
+                        <a href="#" class="submenu-title">Espa&ntilde;ol</a>
+                    </li>
+
+                    <li class="submenu-category">
+                        <a href="#" class="submenu-title">Fren&ccedil;h</a>
+                    </li>
+
+                </ul>
+
+            </li>
+<!-- 
+            <li class="menu-category">
+                <button class="accordion-menu" data-accordion-btn>
+                    <p class="menu-title">Currency</p>
+                    <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+                </button>
+
+                <ul class="submenu-category-list" data-accordion>
+                    <li class="submenu-category">
+                        <a href="#" class="submenu-title">USD &dollar;</a>
+                    </li>
+
+                    <li class="submenu-category">
+                        <a href="#" class="submenu-title">EUR &euro;</a>
+                    </li>
+                </ul>
+            </li> -->
+
+        </ul>
+
+        <ul class="menu-social-container">
+
+            <li>
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a href="#" class="social-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+            </li>
+
+
+
+        </ul>
+
+    </div>
+
+</nav>

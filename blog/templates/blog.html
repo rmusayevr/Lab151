@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%} Lab151 {% endblock title %}
+ 
+{% block content %}
+  <main>
+    <!--
+      - BLOG
+    -->
+    <div class="blog">
+      <div class="container">
+        <div class="row">
+          {% for post in blog  %}
+          <div class="col-6">
+            <div class="card mb-5 border-0" id="{{ blog.id }}">
+              <img src="{{ post.image_small.url }}" class="card-img-top rounded-4" alt="{{ post.title }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.description }}</p>
+                <p class="card-text"><small class="text-muted">By <cite>{{ post.author }}</cite> / <time datetime="2022-04-06">{{ post.created_at }}</time></small></p>
+              </div>
+              <hr class="mt-5">
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% if is_paginated %}
+      <div class="row mt-5">
+        <div class="col text-center">
+          <div class="block-27">
+            <ul>
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                {% endif %}
+                {% for page in paginator.page_range %}
+                    {% if page_obj.number == page %}
+                        <li class="active"><span>{{ page }}</span></li>
+                    {% else %}
+                        <li><a href="?page={{page}}">{{page}}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                {% endif %}
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </main>
+  <!--
+    - FOOTER
+  -->
+ {% endblock content %}

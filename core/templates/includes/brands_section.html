@@ -1,0 +1,36 @@
+<div class="category">
+
+    <div class="container">
+
+      <div class="category-item-container has-scrollbar">
+
+        {% for brand in brands %}
+        <div class="category-item">
+
+          <div class="category-img-box border-0">
+            <img src="{{ brand.image.url }}" alt="dress & frock" style="width: 110px; height: 110px;">
+          </div>
+
+          <div class="category-content-box">
+
+            <div class="category-content-flex" style="margin-bottom: 40px;">
+              <h3 class="category-item-title">{{ brand.name }}</h3>
+
+              <p class="category-item-amount fs-6" style="margin-top: 8px; font-weight: bold;">{{ brand.brand_products.count }}</p>
+              
+            </div>
+
+            <a href="{% url 'brand' brand.id %}" class="category-btn" style="margin-left: 80px;">View all</a>
+
+          </div>
+
+        </div>
+        {% endfor %}
+
+
+
+      </div>
+
+    </div>
+
+  </div>

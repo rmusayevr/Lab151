@@ -1,0 +1,352 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-27 10:58+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\Lab151\settings.py:184
+msgid "Russian"
+msgstr ""
+
+#: .\Lab151\settings.py:185
+msgid "English"
+msgstr ""
+
+#: .\accounts\forms.py:28
+msgid "Password"
+msgstr ""
+
+#: .\accounts\forms.py:35
+msgid "Password confirmation"
+msgstr ""
+
+#: .\accounts\forms.py:39
+msgid "Enter the same password as before, for verification."
+msgstr ""
+
+#: .\accounts\models.py:7
+msgid "email address"
+msgstr ""
+
+#: .\blog\models.py:17
+msgid "Blog_banner"
+msgstr ""
+
+#: .\blog\models.py:18
+msgid "Blog_banners"
+msgstr ""
+
+#: .\blog\models.py:33 .\core\templates\includes\navbar.html:209
+#: .\core\templates\index.html:124
+msgid "Blog"
+msgstr ""
+
+#: .\blog\models.py:34
+msgid "Blogs"
+msgstr ""
+
+#: .\core\templates\base.html:74
+msgid "Call Center"
+msgstr ""
+
+#: .\core\templates\base.html:187
+msgid "Contact"
+msgstr ""
+
+#: .\core\templates\base.html:222
+msgid "Follow Us"
+msgstr ""
+
+#: .\core\templates\base.html:268
+msgid "all rights reserved"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:63
+msgid "Menu"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:73
+msgid "Home"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:79
+msgid "Men`s"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:90
+msgid "Shirt"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:94
+msgid "Shorts & Jeans"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:98
+msgid "Safety Shoes"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:102
+msgid "Wallet"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:112
+msgid "Women`s"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:123
+msgid "Dress & Frock"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:127
+#: .\core\templates\includes\navbar.html:156
+msgid "Earrings"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:131
+#: .\core\templates\includes\navbar.html:164
+msgid "Necklace"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:135
+msgid "Makeup kit"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:145
+msgid "Jewellery"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:160
+msgid "Couple Rings"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:168
+msgid "Bracelets"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:178
+msgid "Perfume"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:189
+msgid "CLothes Perfume"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:193
+msgid "Deodorant"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:197
+msgid "Flower Fragrance"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:201
+msgid "Air Freshener"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:213
+msgid "Hot Offers"
+msgstr ""
+
+#: .\core\templates\includes\navbar.html:225
+msgid "Language"
+msgstr ""
+
+#: .\core\templates\index.html:56 .\products\models.py:55
+msgid "Products"
+msgstr ""
+
+#: .\order\models.py:19
+msgid "Basket"
+msgstr ""
+
+#: .\order\models.py:20
+msgid "Baskets"
+msgstr ""
+
+#: .\order\models.py:38
+msgid "Basket Item"
+msgstr ""
+
+#: .\order\models.py:39
+msgid "Basket Items"
+msgstr ""
+
+#: .\order\models.py:50
+msgid "Wishlist"
+msgstr ""
+
+#: .\order\models.py:51
+msgid "Wishlists"
+msgstr ""
+
+#: .\order\models.py:68
+msgid "Order"
+msgstr ""
+
+#: .\order\models.py:69
+msgid "Orders"
+msgstr ""
+
+#: .\order\models.py:79
+msgid "Order Status"
+msgstr ""
+
+#: .\order\models.py:80
+msgid "Order Statuses"
+msgstr ""
+
+#: .\order\models.py:96
+msgid "Address"
+msgstr ""
+
+#: .\order\models.py:97
+msgid "Addresses"
+msgstr ""
+
+#: .\products\models.py:14
+msgid "Title"
+msgstr ""
+
+#: .\products\models.py:16
+msgid "Description"
+msgstr ""
+
+#: .\products\models.py:18
+msgid "Category"
+msgstr ""
+
+#: .\products\models.py:20 .\products\models.py:173
+msgid "Brand"
+msgstr ""
+
+#: .\products\models.py:54 .\products\models.py:60 .\products\models.py:149
+msgid "Product"
+msgstr ""
+
+#: .\products\models.py:62
+msgid "Cover Image"
+msgstr ""
+
+#: .\products\models.py:64
+msgid "Cover Image 2"
+msgstr ""
+
+#: .\products\models.py:66
+msgid "Price"
+msgstr ""
+
+#: .\products\models.py:67
+msgid "Quantity"
+msgstr ""
+
+#: .\products\models.py:69
+msgid "Code"
+msgstr ""
+
+#: .\products\models.py:71 .\products\models.py:144
+msgid "Property Options"
+msgstr ""
+
+#: .\products\models.py:72
+msgid "Is Stock"
+msgstr ""
+
+#: .\products\models.py:73
+msgid "Is Sale"
+msgstr ""
+
+#: .\products\models.py:75
+msgid "Sale Percent"
+msgstr ""
+
+#: .\products\models.py:88 .\products\models.py:111
+msgid "Product Version"
+msgstr ""
+
+#: .\products\models.py:89
+msgid "Product Versions"
+msgstr ""
+
+#: .\products\models.py:93 .\products\models.py:124 .\products\models.py:137
+#: .\products\models.py:150 .\products\models.py:164
+msgid "Name"
+msgstr ""
+
+#: .\products\models.py:95
+msgid "Parent"
+msgstr ""
+
+#: .\products\models.py:105
+msgid "Product Category"
+msgstr ""
+
+#: .\products\models.py:106
+msgid "Product Categories"
+msgstr ""
+
+#: .\products\models.py:113 .\products\models.py:167
+msgid "Image"
+msgstr ""
+
+#: .\products\models.py:119
+msgid "Product Image"
+msgstr ""
+
+#: .\products\models.py:120
+msgid "Product Images"
+msgstr ""
+
+#: .\products\models.py:130 .\products\models.py:136
+msgid "Property"
+msgstr ""
+
+#: .\products\models.py:131
+msgid "Properties"
+msgstr ""
+
+#: .\products\models.py:143
+msgid "Property Option"
+msgstr ""
+
+#: .\products\models.py:151
+msgid "Email"
+msgstr ""
+
+#: .\products\models.py:152
+msgid "Review"
+msgstr ""
+
+#: .\products\models.py:153
+msgid "Rating"
+msgstr ""
+
+#: .\products\models.py:159
+msgid "Product Review"
+msgstr ""
+
+#: .\products\models.py:160
+msgid "Product Reviews"
+msgstr ""
+
+#: .\products\models.py:165
+msgid "Slug"
+msgstr ""
+
+#: .\products\models.py:174
+msgid "Brands"
+msgstr ""
