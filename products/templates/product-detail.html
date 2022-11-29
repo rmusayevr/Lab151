@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block title%} {{ product.title }} {% endblock title %}
@@ -83,8 +84,8 @@
                       </div>
                     </div>
                     <div class="buttons d-flex flex-row mt-5 gap-3">
-                      <button class="btn btn-outline-dark rounded-4" onclick="window.open('{% url 'cart' %}', '_self');">Buy Now</button>
-                      <button class="btn btn-dark addCart rounded-4" id="{{ product.get_visual_product.pk }}" type="button">Add to Basket</button> </div>
+                      <button class="btn btn-outline-dark rounded-4" onclick="window.open('{% url 'cart' %}', '_self');">{% trans 'Buy Now' %}</button>
+                      <button class="btn btn-dark addCart rounded-4" id="{{ product.get_visual_product.pk }}" type="button">{% trans 'Add to Basket' %}</button> </div>
                   </div>
                 </div>
               </div>
@@ -96,7 +97,7 @@
   </div>
   <div class="container">
     <div class="product-main">
-      <h2 class="title">Related products</h2>
+      <h2 class="title">{% trans 'Related products' %}</h2>
       <div class="product-grid">
         {% for product in related_products %}
         <div class="showcase">

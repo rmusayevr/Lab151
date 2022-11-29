@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-27 10:58+0400\n"
+"POT-Creation-Date: 2022-11-29 22:07+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,334 +19,330 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
-#: .\Lab151\settings.py:184
-msgid "Russian"
-msgstr ""
 
-#: .\Lab151\settings.py:185
+#: .\Lab151\settings.py:192
+msgid "Russian"
+msgstr "Russian"
+
+#: .\Lab151\settings.py:193
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: .\accounts\forms.py:28
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: .\accounts\forms.py:35
 msgid "Password confirmation"
-msgstr ""
+msgstr "Подтверждение пароля"
 
 #: .\accounts\forms.py:39
 msgid "Enter the same password as before, for verification."
-msgstr ""
+msgstr "Введите тот же пароль, что и раньше, для проверки."
 
 #: .\accounts\models.py:7
 msgid "email address"
-msgstr ""
+msgstr "Адрес электронной почты"
+
+#: .\accounts\templates\login.html:1623
+#: .\accounts\templates\register.html:1622
+msgid "The best offer"
+msgstr "Лучшее предложение"
+
+#: .\accounts\templates\login.html:1624
+#: .\accounts\templates\register.html:1623
+msgid "for you"
+msgstr "для вас"
+
+#: .\accounts\templates\login.html:1662
+#: .\accounts\templates\register.html:1697
+msgid "Sign in"
+msgstr "Войти"
+
+#: .\accounts\templates\login.html:1665
+msgid "Don't have an account?"
+msgstr "У вас нет аккаунта?"
+
+#: .\accounts\templates\login.html:1665
+msgid "Sign Up"
+msgstr "Подписаться"
+
+#: .\accounts\templates\register.html:1694
+msgid "Sign up"
+msgstr "Подписаться"
+
+#: .\accounts\templates\register.html:1697
+msgid "Do you have an account?"
+msgstr "У тебя есть аккаунт?"
 
 #: .\blog\models.py:17
 msgid "Blog_banner"
-msgstr ""
+msgstr "Баннер_блога"
 
 #: .\blog\models.py:18
 msgid "Blog_banners"
-msgstr ""
+msgstr "Баннеры_блога"
 
-#: .\blog\models.py:33 .\core\templates\includes\navbar.html:209
-#: .\core\templates\index.html:124
+#: .\blog\models.py:33 .\core\templates\includes\navbar.html:123
+#: .\core\templates\index.html:125
 msgid "Blog"
-msgstr ""
+msgstr "Блог"
 
 #: .\blog\models.py:34
 msgid "Blogs"
-msgstr ""
+msgstr "Блоги"
 
-#: .\core\templates\base.html:74
-msgid "Call Center"
-msgstr ""
-
-#: .\core\templates\base.html:187
-msgid "Contact"
-msgstr ""
-
-#: .\core\templates\base.html:222
-msgid "Follow Us"
-msgstr ""
-
-#: .\core\templates\base.html:268
+#: .\core\templates\base.html:398
 msgid "all rights reserved"
-msgstr ""
+msgstr "все права защищены"
 
-#: .\core\templates\includes\navbar.html:63
+#: .\core\templates\brands.html:113 .\core\templates\index.html:114
+#: .\products\templates\product-list.html:76
+msgid "See More"
+msgstr "Узнать больше"
+
+#: .\core\templates\includes\navbar.html:66
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
-#: .\core\templates\includes\navbar.html:73
+#: .\core\templates\includes\navbar.html:76
 msgid "Home"
-msgstr ""
+msgstr "Дом"
 
-#: .\core\templates\includes\navbar.html:79
-msgid "Men`s"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:90
-msgid "Shirt"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:94
-msgid "Shorts & Jeans"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:98
-msgid "Safety Shoes"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:102
-msgid "Wallet"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:112
-msgid "Women`s"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:123
-msgid "Dress & Frock"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:127
-#: .\core\templates\includes\navbar.html:156
-msgid "Earrings"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:131
-#: .\core\templates\includes\navbar.html:164
-msgid "Necklace"
-msgstr ""
+#: .\core\templates\includes\navbar.html:82 .\products\models.py:174
+msgid "Brands"
+msgstr "Бренды"
 
 #: .\core\templates\includes\navbar.html:135
-msgid "Makeup kit"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:145
-msgid "Jewellery"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:160
-msgid "Couple Rings"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:168
-msgid "Bracelets"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:178
-msgid "Perfume"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:189
-msgid "CLothes Perfume"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:193
-msgid "Deodorant"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:197
-msgid "Flower Fragrance"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:201
-msgid "Air Freshener"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:213
-msgid "Hot Offers"
-msgstr ""
-
-#: .\core\templates\includes\navbar.html:225
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
-#: .\core\templates\index.html:56 .\products\models.py:55
+#: .\core\templates\index.html:57 .\products\models.py:55
+#: .\products\templates\product-list.html:21
 msgid "Products"
-msgstr ""
+msgstr "Товары"
 
 #: .\order\models.py:19
 msgid "Basket"
-msgstr ""
+msgstr "Корзина"
 
 #: .\order\models.py:20
 msgid "Baskets"
-msgstr ""
-
-#: .\order\models.py:38
-msgid "Basket Item"
-msgstr ""
+msgstr "Корзины"
 
 #: .\order\models.py:39
-msgid "Basket Items"
-msgstr ""
+msgid "Basket Item"
+msgstr "Корзина Предмет"
 
-#: .\order\models.py:50
-msgid "Wishlist"
-msgstr ""
+#: .\order\models.py:40
+msgid "Basket Items"
+msgstr "Корзина товаров"
 
 #: .\order\models.py:51
-msgid "Wishlists"
-msgstr ""
+msgid "Wishlist"
+msgstr "Список желаний"
 
-#: .\order\models.py:68
-msgid "Order"
-msgstr ""
+#: .\order\models.py:52
+msgid "Wishlists"
+msgstr "Списки пожеланий"
 
 #: .\order\models.py:69
-msgid "Orders"
-msgstr ""
+msgid "Order"
+msgstr "Заказ"
 
-#: .\order\models.py:79
-msgid "Order Status"
-msgstr ""
+#: .\order\models.py:70
+msgid "Orders"
+msgstr "Заказы"
 
 #: .\order\models.py:80
-msgid "Order Statuses"
-msgstr ""
+msgid "Order Status"
+msgstr "Статус заказа"
 
-#: .\order\models.py:96
-msgid "Address"
-msgstr ""
+#: .\order\models.py:81
+msgid "Order Statuses"
+msgstr "Статусы заказов"
 
 #: .\order\models.py:97
+msgid "Address"
+msgstr "Адрес"
+
+#: .\order\models.py:98
 msgid "Addresses"
-msgstr ""
+msgstr "Адреса"
+
+#: .\order\templates\cart.html:1626
+msgid "Your products"
+msgstr "Ваши продукты"
+
+#: .\order\templates\cart.html:1670
+msgid "Total"
+msgstr "Общий"
+
+#: .\order\templates\cart.html:1677
+msgid "Payment"
+msgstr "Оплата"
+
+#: .\order\templates\cart.html:1684
+msgid "Card Number"
+msgstr "Номер карты"
+
+#: .\order\templates\cart.html:1690
+msgid "Name on card"
+msgstr "Имя на карте"
+
+#: .\order\templates\cart.html:1698
+msgid "Expiration"
+msgstr "Срок действия"
+
+#: .\order\templates\cart.html:1710
+msgid "Lorem ipsum dolor sit amet consectetur, adipisicing elit"
+msgstr "Lorem ipsum dolor sit amet consectetur, adipisicing elit"
+
+#: .\order\templates\cart.html:1712
+msgid "Buy now"
+msgstr "Купи сейчас"
+
+#: .\order\templates\cart.html:1715
+msgid "Back to shopping"
+msgstr "Назад к покупкам"
 
 #: .\products\models.py:14
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 #: .\products\models.py:16
 msgid "Description"
-msgstr ""
+msgstr "Описание"
 
 #: .\products\models.py:18
 msgid "Category"
-msgstr ""
+msgstr "Категория"
 
 #: .\products\models.py:20 .\products\models.py:173
 msgid "Brand"
-msgstr ""
+msgstr "Бренд"
 
 #: .\products\models.py:54 .\products\models.py:60 .\products\models.py:149
 msgid "Product"
-msgstr ""
+msgstr "Продукт"
 
 #: .\products\models.py:62
 msgid "Cover Image"
-msgstr ""
+msgstr "Изображение на обложке"
 
 #: .\products\models.py:64
 msgid "Cover Image 2"
-msgstr ""
+msgstr "Изображение на обложке 2"
 
 #: .\products\models.py:66
 msgid "Price"
-msgstr ""
+msgstr "Цена"
 
 #: .\products\models.py:67
 msgid "Quantity"
-msgstr ""
+msgstr "Количество"
 
 #: .\products\models.py:69
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #: .\products\models.py:71 .\products\models.py:144
 msgid "Property Options"
-msgstr ""
+msgstr "Параметры свойства"
 
 #: .\products\models.py:72
 msgid "Is Stock"
-msgstr ""
+msgstr "Есть на складе"
 
 #: .\products\models.py:73
 msgid "Is Sale"
-msgstr ""
+msgstr "Продажа"
 
 #: .\products\models.py:75
 msgid "Sale Percent"
-msgstr ""
+msgstr "Процент продажи"
 
 #: .\products\models.py:88 .\products\models.py:111
 msgid "Product Version"
-msgstr ""
+msgstr "Версия продукта"
 
 #: .\products\models.py:89
 msgid "Product Versions"
-msgstr ""
+msgstr "Версии продукта"
 
 #: .\products\models.py:93 .\products\models.py:124 .\products\models.py:137
 #: .\products\models.py:150 .\products\models.py:164
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: .\products\models.py:95
 msgid "Parent"
-msgstr ""
+msgstr "Родитель"
 
 #: .\products\models.py:105
 msgid "Product Category"
-msgstr ""
+msgstr "Категория Продукта"
 
 #: .\products\models.py:106
 msgid "Product Categories"
-msgstr ""
+msgstr "Категории Товаров"
 
 #: .\products\models.py:113 .\products\models.py:167
 msgid "Image"
-msgstr ""
+msgstr "Изображение"
 
 #: .\products\models.py:119
 msgid "Product Image"
-msgstr ""
+msgstr "Изображение продукта"
 
 #: .\products\models.py:120
 msgid "Product Images"
-msgstr ""
+msgstr "Изображения продукта"
 
 #: .\products\models.py:130 .\products\models.py:136
 msgid "Property"
-msgstr ""
+msgstr "Имущество"
 
 #: .\products\models.py:131
 msgid "Properties"
-msgstr ""
+msgstr "Характеристики"
 
 #: .\products\models.py:143
 msgid "Property Option"
-msgstr ""
+msgstr "Вариант свойства"
 
 #: .\products\models.py:151
 msgid "Email"
-msgstr ""
+msgstr "Эл. адрес"
 
 #: .\products\models.py:152
 msgid "Review"
-msgstr ""
+msgstr "Обзор"
 
 #: .\products\models.py:153
 msgid "Rating"
-msgstr ""
+msgstr "Рейтинг"
 
 #: .\products\models.py:159
 msgid "Product Review"
-msgstr ""
+msgstr "Обзор продукта"
 
 #: .\products\models.py:160
 msgid "Product Reviews"
-msgstr ""
+msgstr "Обзоры продуктов"
 
 #: .\products\models.py:165
 msgid "Slug"
-msgstr ""
+msgstr "Слизняк"
 
-#: .\products\models.py:174
-msgid "Brands"
-msgstr ""
+#: .\products\templates\product-detail.html:87
+msgid "Buy Now"
+msgstr "Купить Сейчас"
+
+#: .\products\templates\product-detail.html:88
+msgid "Add to Basket"
+msgstr "Добавить в корзину"
+
+#: .\products\templates\product-detail.html:100
+msgid "Related products"
+msgstr "Сопутствующие товары"

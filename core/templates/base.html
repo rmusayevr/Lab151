@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -74,12 +75,21 @@
         <div class="header-top-actions">
 
 
-          <select name="language">
-
-            <option value="en-US">En</option>
-            <option value="es-ES">Ru</option>
-
-          </select>
+          {% get_current_language as CURRENT_LANGUAGE %}
+          {% get_available_languages as AVAILABLE_LANGUAGES %}
+          {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+            <div class="dropdown block-language-wrapper hidden-xs"> <a role="button" data-bs-toggle="dropdown" data-bs-target="#" class="block-language dropdown-toggle" href="#"> {{ CURRENT_LANGUAGE }}<span class="caret"></span> </a>
+              <ul class="dropdown-menu" role="menu">
+                {% for language in languages %}
+                  <li>
+                    <a href="/{{ language.code }}/"
+                      class="dropdown-item {% if language.code == CURRENT_LANGUAGE %} active {% endif %}">
+                      {{ language.name_local }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
 
         </div>
 
@@ -385,7 +395,7 @@
         <img src="{% static 'images/payment.png' %}" alt="payment method" class="payment-img">
 
         <p class="copyright">
-          &copy; <a href="#">uzum.media</a> all rights reserved.
+          &copy; <a href="#">uzum.media</a> {% trans 'all rights reserved' %}.
         </p>
 
       </div>

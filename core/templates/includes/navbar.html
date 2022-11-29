@@ -1,3 +1,4 @@
+{% load i18n %}
 <nav class="desktop-navigation-menu">
     <div class="container">
         <ul class="desktop-menu-category-list">
@@ -62,7 +63,7 @@
 <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
 
     <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
+        <h2 class="menu-title">{% trans 'Menu' %}</h2>
 
         <button class="menu-close-btn" data-mobile-menu-close-btn>
             <ion-icon name="close-outline"></ion-icon>
@@ -72,13 +73,13 @@
     <ul class="mobile-menu-category-list">
 
         <li class="menu-category">
-            <a href="{% url 'home' %}" class="menu-title">Home</a>
+            <a href="{% url 'home' %}" class="menu-title">{% trans 'Home' %}</a>
         </li>
 
         <li class="menu-category">
 
             <button class="accordion-menu" data-accordion-btn>
-                <p class="menu-title">Brands</p>
+                <p class="menu-title">{% trans 'Brands' %}</p>
 
                 <div>
                     <ion-icon name="add-outline" class="add-icon"></ion-icon>
@@ -119,7 +120,7 @@
         
 
         <li class="menu-category">
-            <a href="{% url 'blog' %}" class="menu-title">Blog</a>
+            <a href="{% url 'blog' %}" class="menu-title">{% trans 'Blog' %}</a>
         </li>
 
     </ul>
@@ -131,7 +132,7 @@
             <li class="menu-category">
 
                 <button class="accordion-menu" data-accordion-btn>
-                    <p class="menu-title">Language</p>
+                    <p class="menu-title">{% trans 'Language' %}</p>
 
                     <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
                 </button>

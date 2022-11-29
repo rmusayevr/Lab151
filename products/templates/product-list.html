@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block title%} Lab151 {% endblock title %}
@@ -17,7 +18,7 @@
         <div class="product-minimal">
         </div>
         <div class="product-main">
-          <h2 class="title">Products</h2>
+          <h2 class="title">{% trans 'Products' %}</h2>
           <div class="product-grid" id="product-list">
             {% for product in products %}
             <div class="showcase">
@@ -72,7 +73,7 @@
 
         </div>
         <div class="see_more">
-          <button type="submit" class="show-more-btn" id="seeMore">See More</button>
+          <button type="submit" class="show-more-btn" id="seeMore">{% trans 'See More' %}</button>
         </div>
       </div>
     </div>
