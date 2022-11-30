@@ -9,8 +9,10 @@ downButton.forEach(element => {
     element.addEventListener("click", function() {
         price = element.parentElement.parentElement.querySelector('.price').innerHTML;
         let qty = element.parentElement.querySelector('.quantity').value
+        let down = element.parentElement.querySelector('#stepDown')
         let ProductID = this.getAttribute('data');
-        if (qty > 0) {
+        if (qty >= 1) {
+            console.log(qty);
         fetch(`${location.origin}/api/basket/`, {
             method: 'PATCH',
             headers: {
@@ -22,11 +24,14 @@ downButton.forEach(element => {
                 'productDown': ProductID,
             })
         }).then(response => response.json()).then(data => {
-            
                 count_mobile.innerHTML = parseInt(count_mobile.innerHTML) - 1
                 count.innerHTML = parseInt(count.innerHTML) - 1
                 total.innerHTML = (parseFloat(total.innerHTML) - parseFloat(price)).toFixed(2)
         })}
+        if (qty == 1) {
+            console.log(qty);
+            down.setAttribute('disabled', '');
+        }
     });
 });
 
@@ -34,6 +39,8 @@ let upButton = document.querySelectorAll("#stepUp")
 upButton.forEach(element => {
     element.addEventListener("click", function() {
         price = element.parentElement.parentElement.querySelector('.price').innerHTML;
+        let down = element.parentElement.querySelector('#stepDown')
+        down.removeAttribute('disabled')
         let ProductID = this.getAttribute('data');
         fetch(`${location.origin}/api/basket/`, {
             method: 'PATCH',

@@ -167,220 +167,114 @@
     
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="footer-nav">
-            <div class="container" id="top-nav">
-    
-              <ul class="footer-nav-list">
-    
-                <li class="footer-nav-item filter-Genclik">
-                  <div class="mapouter">
-                    <div class="gmap_canvas"><iframe width="600" height="200" id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=lab%20beauty&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                        scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-a.com"></a><br>
-                      <style>
-                        .mapouter {
-                          position: relative;
-                          text-align: right;
-                          height: 200px;
-                          width: 600px;
-                        }
-                      </style><a href="https://www.embedgooglemap.net"></a>
-                      <style>
-                        .gmap_canvas {
-                          overflow: hidden;
-                          background: none !important;
-                          height: 200px;
-                          width: 600px;
-                        }
-                      </style>
+        {% for contact in contacts %}
+          <div class="carousel-item {% if contact.pk == 1%} active {% endif %}">
+            <div class="footer-nav">
+              <div class="container" id="top-nav">
+      
+                <ul class="footer-nav-list">
+      
+                  <li class="footer-nav-item filter-Genclik">
+                    <div class="mapouter">
+                      <div class="gmap_canvas"><iframe width="600" height="200" id="gmap_canvas"
+                          src="{{ contact.location_src}}" frameborder="0"
+                          scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-a.com"></a><br>
+                        <style>
+                          .mapouter {
+                            position: relative;
+                            text-align: right;
+                            height: 200px;
+                            width: 600px;
+                          }
+                        </style><a href="https://www.embedgooglemap.net"></a>
+                        <style>
+                          .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 200px;
+                            width: 600px;
+                          }
+                        </style>
+                      </div>
                     </div>
-                  </div>
-              </ul>
-    
-              <ul class="footer-nav-list">
-    
-                <li class="footer-nav-item">
-                  <h2 class="nav-title">Contact</h2>
-                </li>
-    
-                <li class="footer-nav-item flex">
-                  <div class="icon-box">
-                    <ion-icon name="location-outline"></ion-icon>
-                  </div>
-    
-                  <address class="content">
-                    419 State 414 Rte
-                    Beaver Dams, New York(NY), 14812, USA
-                  </address>
-                </li>
-    
-                <li class="footer-nav-item flex">
-                  <div class="icon-box">
-                    <ion-icon name="call-outline"></ion-icon>
-                  </div>
-    
-                  <a href="tel:+607936-8058" class="footer-nav-link">(607) 936-8058</a>
-                </li>
-    
-                <li class="footer-nav-item flex">
-                  <div class="icon-box">
-                    <ion-icon name="mail-outline"></ion-icon>
-                  </div>
-    
-                  <a href="mailto:example@gmail.com" class="footer-nav-link">example@gmail.com</a>
-                </li>
-    
-              </ul>
-    
-              <ul class="footer-nav-list">
-    
-                <li class="footer-nav-item">
-                  <h2 class="nav-title">Follow Us</h2>
-                </li>
-    
-                <li>
-                  <ul class="social-link">
-    
-                    <li class="footer-nav-item">
-                      <a href="#" class="footer-nav-link">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                      </a>
-                    </li>
-    
-                    <li class="footer-nav-item">
-                      <a href="#" class="footer-nav-link">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                      </a>
-                    </li>
-    
-                    <li class="footer-nav-item">
-                      <a href="#" class="footer-nav-link">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                      </a>
-                    </li>
-    
-                    <li class="footer-nav-item">
-                      <a href="#" class="footer-nav-link">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                      </a>
-                    </li>
-    
-                  </ul>
-                </li>
-    
-              </ul>
-    
+                </ul>
+      
+                <ul class="footer-nav-list">
+      
+                  <li class="footer-nav-item">
+                    <h2 class="nav-title">Contact</h2>
+                  </li>
+      
+                  <li class="footer-nav-item flex">
+                    <div class="icon-box">
+                      <ion-icon name="location-outline"></ion-icon>
+                    </div>
+      
+                    <address class="content">
+                      {{ contact.location }}
+                    </address>
+                  </li>
+      
+                  <li class="footer-nav-item flex">
+                    <div class="icon-box">
+                      <ion-icon name="call-outline"></ion-icon>
+                    </div>
+      
+                    <a href="tel:+607936-8058" class="footer-nav-link">{{ contact.phone }}</a>
+                  </li>
+      
+                  <li class="footer-nav-item flex">
+                    <div class="icon-box">
+                      <ion-icon name="mail-outline"></ion-icon>
+                    </div>
+      
+                    <a href="mailto:example@gmail.com" class="footer-nav-link">{{ contact.mail }}</a>
+                  </li>
+      
+                </ul>
+      
+                <ul class="footer-nav-list">
+      
+                  <li class="footer-nav-item">
+                    <h2 class="nav-title">Follow Us</h2>
+                  </li>
+      
+                  <li>
+                    <ul class="social-link">
+      
+                      <li class="footer-nav-item">
+                        <a href="#" class="footer-nav-link">
+                          <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                      </li>
+      
+                      <li class="footer-nav-item">
+                        <a href="#" class="footer-nav-link">
+                          <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                      </li>
+      
+                      <li class="footer-nav-item">
+                        <a href="#" class="footer-nav-link">
+                          <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                      </li>
+      
+                      <li class="footer-nav-item">
+                        <a href="#" class="footer-nav-link">
+                          <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                      </li>
+      
+                    </ul>
+                  </li>
+      
+                </ul>
+      
+              </div>
             </div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <div class="footer-nav">
-            <div class="container" id="top-nav">
-    
-              <ul class="footer-nav-list">
-    
-                <li class="footer-nav-item filter-Genclik">
-                  <div class="mapouter">
-                    <div class="gmap_canvas"><iframe width="600" height="200" id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=lab%20beauty&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
-                        scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-a.com"></a><br>
-                      <style>
-                        .mapouter {
-                          position: relative;
-                          text-align: right;
-                          height: 200px;
-                          width: 600px;
-                        }
-                      </style><a href="https://www.embedgooglemap.net"></a>
-                      <style>
-                        .gmap_canvas {
-                          overflow: hidden;
-                          background: none !important;
-                          height: 200px;
-                          width: 600px;
-                        }
-                      </style>
-                    </div>
-                  </div>
-              </ul>
-    
-              <ul class="footer-nav-list">
-    
-                <li class="footer-nav-item">
-                  <h2 class="nav-title">Contact</h2>
-                </li>
-    
-                <li class="footer-nav-item flex">
-                  <div class="icon-box">
-                    <ion-icon name="location-outline"></ion-icon>
-                  </div>
-    
-                  <address class="content">
-                    419 State 414 Rte
-                    Beaver Dams, New York(NY), 14812, USA
-                  </address>
-                </li>
-    
-                <li class="footer-nav-item flex">
-                  <div class="icon-box">
-                    <ion-icon name="call-outline"></ion-icon>
-                  </div>
-    
-                  <a href="tel:+607936-8058" class="footer-nav-link">(607) 936-8058</a>
-                </li>
-    
-                <li class="footer-nav-item flex">
-                  <div class="icon-box">
-                    <ion-icon name="mail-outline"></ion-icon>
-                  </div>
-    
-                  <a href="mailto:example@gmail.com" class="footer-nav-link">example@gmail.com</a>
-                </li>
-    
-              </ul>
-    
-              <ul class="footer-nav-list">
-    
-                <li class="footer-nav-item">
-                  <h2 class="nav-title">Follow Us</h2>
-                </li>
-    
-                <li>
-                  <ul class="social-link">
-    
-                    <li class="footer-nav-item">
-                      <a href="#" class="footer-nav-link">
-                        <ion-icon name="logo-facebook"></ion-icon>
-                      </a>
-                    </li>
-    
-                    <li class="footer-nav-item">
-                      <a href="#" class="footer-nav-link">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                      </a>
-                    </li>
-    
-                    <li class="footer-nav-item">
-                      <a href="#" class="footer-nav-link">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                      </a>
-                    </li>
-    
-                    <li class="footer-nav-item">
-                      <a href="#" class="footer-nav-link">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                      </a>
-                    </li>
-    
-                  </ul>
-                </li>
-    
-              </ul>
-    
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

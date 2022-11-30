@@ -1,9 +1,8 @@
 from order.models import Basket
-from django.db.models import Q
-from django.shortcuts import render
-
+from .models import Contact
 def base_data(request):
     data = {}
+    data['contacts'] = Contact.objects.all()
     quantity = 0
     if request.user.is_authenticated:
         shopping_card = Basket.objects.filter(user = request.user.id).last()
