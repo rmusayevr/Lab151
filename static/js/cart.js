@@ -1,15 +1,16 @@
-count = document.querySelector('.count')
-count_mobile = document.querySelector('.count-mobile')
-total = document.querySelector("#total_price")
+let count = document.querySelector('.count')
+let count_mobile = document.querySelector('.count-mobile')
+let total = document.querySelector("#total_price")
 let price;
-quantity = document.querySelector('.quantity')
+let quantity = document.querySelector('.quantity')
 
 let downButton = document.querySelectorAll("#stepDown")
 downButton.forEach(element => {
     element.addEventListener("click", function() {
         price = element.parentElement.parentElement.querySelector('.price').innerHTML;
+        let qty = element.parentElement.querySelector('.quantity').value
         let ProductID = this.getAttribute('data');
-        if (parseInt(count.innerHTML) > 1) {
+        if (qty > 0) {
         fetch(`${location.origin}/api/basket/`, {
             method: 'PATCH',
             headers: {

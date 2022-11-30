@@ -1,17 +1,6 @@
-from itertools import product
-from django.shortcuts import render
-from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from rest_framework.generics import ListAPIView
-from django_filters.rest_framework import DjangoFilterBackend
-
 from products.models import *
-from django.urls.base import reverse_lazy
-
-from products.serializers import ProductListSerializer
-
-# Create your views here.
 
 class ProductList(ListView):
     model = Product
@@ -43,10 +32,3 @@ class ProductDetail(DetailView):
         context['categories'] = ProductCategory.objects.filter(parent__isnull=True)
         # context['related_products'] = Product.objects.filter(category__in=context['product'].category.all()).exclude(id=self.kwargs['pk'])
         return context
-
-
-class ProductListApiView(ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductListSerializer
-    filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('category__parent', 'category', 'brand')

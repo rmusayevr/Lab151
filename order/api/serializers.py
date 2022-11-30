@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from order.models import Basket, BasketItem
-from products.serializers import ProductVersionListSerializer
+from products.api.serializers import ProductVersionListSerializer
 
 class BasketSerializer(serializers.ModelSerializer):
 

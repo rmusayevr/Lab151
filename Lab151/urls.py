@@ -28,8 +28,12 @@ urlpatterns = i18n_patterns(
     path('', include('products.urls')),
     path('', include('accounts.urls')),
     path('admin/', admin.site.urls),
-    path('', include('accounts.api.urls'))
 )
 
 urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += [
+    path('', include('accounts.api.urls')),
+    path('', include('products.api.urls')),
+    path('', include('order.api.urls'))
+]

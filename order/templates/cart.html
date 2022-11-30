@@ -1645,7 +1645,7 @@
                                       </div>
                                       <div class="number-input">
                                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" id="stepDown" data="{{product.product.pk}}"></button>
-                                        <input class="quantity" min="1" name="quantity" value="{{product.quantity}}" type="number">
+                                        <input class="quantity" min="0" name="quantity" value="{{product.quantity}}" type="number">
                                         <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" id="stepUp" class="plus" data="{{product.product.pk}}"></button>
                                       </div>
                                       <button id="remove" data="{{product.product.pk}}"><ion-icon name="close-outline"></ion-icon></button>

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, ProductCategory, ProductVersion, Brand
+from products.models import Product, ProductCategory, ProductVersion, Brand
 from math import ceil
 
 

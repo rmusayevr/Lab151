@@ -129,7 +129,11 @@
             </button>
             <button class="action-btn" onclick="window.open('{% url 'cart' %}', '_self');">
               <ion-icon name="bag-handle-outline"></ion-icon>
-              <span class="count" id="{{ quantity }}">{{ quantity }}</span>
+              {% if quantity %}
+                <span class="count" id="{{ quantity }}">{{ quantity }}</span>
+              {% else %}
+                <span class="count" id="{{ quantity }}">0</span>
+              {% endif %}
             </button>
           {% else %}
             <button class="action-btn" onclick="window.open('{% url 'login_page' %}', '_self');">
