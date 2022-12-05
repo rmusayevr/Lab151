@@ -1,52 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
- 
 {% block content %}
-
   <main>
-
-
 {% include 'includes/brands_section.html' %}
-
     <div class="product-container">
-
       <div class="container">
-
-
-
         <div class="product-box">
-
           <div class="product-minimal">
-
-
           </div>
-
-
-
           <div class="product-main">
-
             <h2 class="title">Brand</h2>
-            
             <div class="long_banner1">
               <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width:200px;">
               <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width:200px;">
-
             </div>
             <div class="long_banner2">
               <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width: 200px;">
               <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width: 200px;">
-
             </div>
             <div class="product-grid" id="product-list">
-
-
               {% for product in products %}
               <div class="showcase">
-
                 <div class="showcase-banner">
-
                   <a href="{{ product.get_absolute_url }}"> 
                     <img src="{{ product.get_visual_product.cover_image.url }}" alt="Mens Winter Leathers Jackets" width="300" class="product-img default">
                     {% if product.get_visual_product.cover_image_2 %}
@@ -54,34 +29,21 @@
                     {% else %}
                     <img src="{{ product.get_visual_product.cover_image.url }}" alt="Mens Winter Leathers Jackets" width="300" class="product-img hover">
                     {% endif %}
-  
                     </a>
-
                   <div class="showcase-actions">
-
-
                     <button class="btn-action">
                       <ion-icon name="eye-outline"></ion-icon>
                     </button>
-
-                   
-
                     <button class="btn-action">
                       <ion-icon name="bag-add-outline"></ion-icon>
                     </button>
-
                   </div>
-
                 </div>
-
                 <div class="showcase-content">
-
                   <a href="#" class="showcase-category">{{ product.category.first }}</a>
-
                   <a href="{{ product.get_absolute_url }}">
                     <h3 class="showcase-title">{{ product.title }}</h3>
                   </a>
-
                   <div class="showcase-rating">
                     {% for i in product.get_star_ratings %}
                     <ion-icon name="star"></ion-icon>
@@ -98,37 +60,19 @@
                     <p class="price">₼{{ product.get_visual_product.price }}</p>
                     {% endif %}
                   </div>
-
-
                 </div>
-
               </div>
               {% endfor %}
-           
-
             </div>
-
           </div>
           <div class="see_more">
             <button type="submit" class="show-more-btn seeMoreBrand rounded-4" id="{{brand}}">{% trans 'See More' %}</button>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
-
-
-
-
   </main>
-
-
-
 {% endblock content %}
-
 {% block js %}
     <script src="{% static 'js/showMoreBrand.js' %}"></script>
   {% endblock %}

@@ -73,6 +73,8 @@ class ProductVersion(AbstractModel):
     is_sale = models.BooleanField(default=False, verbose_name=_('Is Sale'))
     sale_percent = models.IntegerField(
         default=0, verbose_name=_('Sale Percent'))
+    final_price = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True, verbose_name=_('Final Price'))
 
     def __str__(self):
         return self.product.title + ' ' + str(self.id)
@@ -80,8 +82,16 @@ class ProductVersion(AbstractModel):
     @property
     def get_price(self):
         if self.is_sale:
+            self.final_price = self.price
             return self.price - (self.price * self.sale_percent / 100)
         return self.price
+
+    def save(self, *args, **kwargs):
+        if self.is_sale:
+            self.final_price = self.price - (self.price * self.sale_percent / 100)
+            return super().save()
+        self.final_price = self.price
+        return super().save()
 
     class Meta:
         ordering = ('-created_at',)

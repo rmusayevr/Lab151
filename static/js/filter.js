@@ -57,10 +57,10 @@ const FilterLogic = {
                   
                   <div class="price-box">
                     ${data[i].is_sale ?
-                    `<p class="price">₼${data[i].visual_price}</p>
-                    <del>₼${data[i].real_price}</del>`
+                    `<p class="price">₼${data[i].visual_price.toFixed(2)}</p>
+                    <del>₼${data[i].real_price.toFixed(2)}</del>`
                     :
-                    `<p class="price">₼${data[i].real_price}</p>`
+                    `<p class="price">₼${data[i].real_price.toFixed(2)}</p>`
                     }
                   </div>
                   

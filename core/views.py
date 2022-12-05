@@ -1,8 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.views.generic import DetailView
-
+from django.views.generic import DetailView, ListView
 from products.models import Product, ProductCategory, Brand
 from .models import *
 from core.forms import *
@@ -29,13 +28,35 @@ class HomePage(TemplateView):
 class BrandView(DetailView):
     model = Brand
     template_name = "brands.html"
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products'] = Product.objects.filter(brand=self.object)[:4]
         context['categories'] = ProductCategory.objects.filter(parent__isnull=True)
         context['brands'] = Brand.objects.all()
         context['brand'] = self.kwargs.get('pk')
+        return context
+
+class Filter(ListView):
+    template_name = "filter.html"
+    model = Product
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        filter = self.request.GET.get("filter")
+        if filter == 'new':
+            self.queryset = Product.objects.order_by('-created_at').all()
+        elif filter == 'cheap':
+            self.queryset = Product.objects.order_by('product_version__final_price').all()
+        elif filter == 'expensive':
+            self.queryset = Product.objects.order_by('-product_version__final_price').all()
+        else:
+            self.queryset = Product.objects.order_by('-created_at').all()
+        return self.queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = ProductCategory.objects.filter(parent__isnull=True)
+        context['brands'] = Brand.objects.all()
         return context
 
 
