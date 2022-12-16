@@ -1644,11 +1644,11 @@
                   <img src="{{ version.cover_image.url}}" alt="Product Images" class="product-img default" width="300">
                   <img src="{{ version.cover_image.url}}" alt="Product Images" class="product-img hover" width="300">
                   {% if product.is_new == True %}
-                  <p class="showcase-badge angle pink">new</p>
+                  <p class="showcase-badge angle pink">Yeni</p>
                   {% endif %}
 
                   {% if product.is_sale == True %}
-                  <p class="showcase-badge angle black">Sale</p>
+                  <p class="showcase-badge angle black">Endirimdə</p>
                   {% endif %}
                   <div class="showcase-actions">
                     <!-- <button class="btn-action">
@@ -1689,8 +1689,12 @@
 
                   
                   <div class="price-box">
-                    <p class="price">${{ version.price }}</p>
-                    <del>$35.00</del>
+                    {% if product.get_visual_product.is_sale %}
+                    <p class="price">₼{{ product.get_visual_product.get_price }}</p>
+                    <del>₼ {{ product.get_visual_product.price }}</del>
+                    {% else %}
+                    <p class="price">₼{{ product.get_visual_product.price }}</p>
+                    {% endif %}
                   </div>
               
                 </div>

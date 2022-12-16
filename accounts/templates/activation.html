@@ -1,7 +1,7 @@
 {% autoescape off %}
-Hi {{ user.username }},
+Salam {{ user.username }},
 
-Please click on the link below to confirm your registration:
+Zəhmət olmasa, qeydiyyatınızı tamamlamaq üçün aşağıdakı linki klikləyin.
 
-<a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Click here</a>
+<a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Buranı kliklə</a>
 {% endautoescape %}

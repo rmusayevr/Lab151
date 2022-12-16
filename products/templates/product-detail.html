@@ -76,7 +76,7 @@
                       {% endif %}
                     </div>
                     <div class="mt-5">
-                      <span class="fw-bold">Color</span>
+                      <span class="fw-bold">{% trans 'Rəng' %}</span>
                       <div class="colors">
                         <ul id="marker">
                           <li style="background-color: {{ option.name }}; border:1px solid black;"></li>
@@ -84,8 +84,8 @@
                       </div>
                     </div>
                     <div class="buttons d-flex flex-row mt-5 gap-3">
-                      <button class="btn btn-outline-dark rounded-4" onclick="window.open('{% url 'cart' %}', '_self');">{% trans 'Buy Now' %}</button>
-                      <button class="btn btn-dark addCart rounded-4" id="{{ product.get_visual_product.pk }}" type="button">{% trans 'Add to Basket' %}</button> </div>
+                      <button class="btn btn-outline-dark rounded-4" onclick="window.open('{% url 'cart' %}', '_self');">{% trans 'İndi Al' %}</button>
+                      <button class="btn btn-dark addCart rounded-4" id="{{ product.get_visual_product.pk }}" type="button">{% trans 'Səbətə əlavə et' %}</button> </div>
                   </div>
                 </div>
               </div>
@@ -110,7 +110,7 @@
               <img src="{{ product.get_visual_product.cover_image.url }}" alt="{{product.title}}" width="300" class="product-img hover">
               {% endif %}
              </a>
-            <p class="showcase-badge angle black">sale</p>
+            <p class="showcase-badge angle black">{% trans 'Endirim' %}</p>
             <div class="showcase-actions">
               <button class="btn-action">
                 <ion-icon name="eye-outline"></ion-icon>

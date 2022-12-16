@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block content %}
   <main>
@@ -11,17 +12,17 @@
       <div class='d-flex justify-content-end'>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Ordering
+            Sırala
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">New Added</a></li>
-            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">First Cheap</a></li>
-            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">First Expensive</a></li>
+            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">Yenilər əvvəlcə</a></li>
+            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">Əvvəlcə ucuz</a></li>
+            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">Əvvəlcə baha</a></li>
           </ul>
         </div>
       </div>
       <div class="product-main">
-        <h2 class="title">{% trans 'Products' %}</h2>
+        <h2 class="title">{% trans 'Məhsullar' %}</h2>
         {% for i in banner %}
         <div class="long_banner1">
           <img src="{{ i.banner_small1.url }}" alt="" style="width:200px;">
@@ -76,11 +77,6 @@
           </div>
           {% endfor %}
         </div>
-        
-
-      </div>
-      <div class="see_more">
-        <button type="submit" class="show-more-btn rounded-4" id="seeMore">{% trans 'See More' %}</button>
       </div>
     </div>
   </div>

@@ -1,9 +1,9 @@
 {% load i18n %}
-<nav class="desktop-navigation-menu">
+<nav class="desktop-navigation-menu text-light" style='background-color: #8bc53f;'>
     <div class="container">
         <ul class="desktop-menu-category-list">
             <li class="menu-category">
-                <a href="" class="menu-title">Brands</a>
+                <a href="" class="menu-title">{% trans 'Brendlər' %}</a>
                 <ul class="dropdown-list">
                     {% for brand in brands %}
                     <li class="dropdown-item">
@@ -73,13 +73,13 @@
     <ul class="mobile-menu-category-list">
 
         <li class="menu-category">
-            <a href="{% url 'home' %}" class="menu-title">{% trans 'Home' %}</a>
+            <a href="{% url 'home' %}" class="menu-title">{% trans 'Ana səhifə' %}</a>
         </li>
 
         <li class="menu-category">
 
             <button class="accordion-menu" data-accordion-btn>
-                <p class="menu-title">{% trans 'Brands' %}</p>
+                <p class="menu-title">{% trans 'Brendlər' %}</p>
 
                 <div>
                     <ion-icon name="add-outline" class="add-icon"></ion-icon>
@@ -120,7 +120,7 @@
         
 
         <li class="menu-category">
-            <a href="{% url 'blog' %}" class="menu-title">{% trans 'Blog' %}</a>
+            <a href="{% url 'blog' %}" class="menu-title">{% trans 'Bloq' %}</a>
         </li>
 
     </ul>
@@ -132,7 +132,7 @@
             <li class="menu-category">
 
                 <button class="accordion-menu" data-accordion-btn>
-                    <p class="menu-title">{% trans 'Language' %}</p>
+                    <p class="menu-title">{% trans 'Dil' %}</p>
 
                     <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
                 </button>

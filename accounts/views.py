@@ -21,7 +21,7 @@ class CustomLoginView(LoginView):
     form_class = LoginForm
 
     def form_invalid(self, form):
-        messages.error(self.request, 'Invalid email or password')
+        messages.error(self.request, 'Yanlış email və ya şifrə')
         return super().form_invalid(form)
     
     def dispatch(self, request, *args, **kwargs):
@@ -36,10 +36,10 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('login_page')
 
     def form_valid(self, form):
-        print('form valid')
         result = super().form_valid(form)
         send_confirmation_mail(user=self.object, current_site=get_current_site(self.request))
         messages.success(self.request, 'Please confirm your email address to complete the registration')
+        messages.success(self.request, 'Zəhmət olmasa qeydiyyatı tamamlamaq üçün email ünvanınızı təsdiqləyin')
         return result
     
     def dispatch(self, request, *args, **kwargs):
@@ -62,8 +62,8 @@ class ActiveAccountView(View):
         if user is not None and account_activation_token.check_token(user, token):
             user.is_active = True
             user.save()
-            messages.add_message(self.request, messages.SUCCESS,('Your account have been confirmed.'))
+            messages.add_message(self.request, messages.SUCCESS,('Hesabınız aktivlaşdirilmişdir.'))
             return redirect(reverse_lazy('login_page'))
         else:
-            messages.warning(request, 'Something went wrong!')
+            messages.warning(request, 'Yanlış bir şey baş verdi!')
             return redirect(reverse_lazy('login_page'))

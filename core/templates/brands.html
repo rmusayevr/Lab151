@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block content %}
   <main>
@@ -8,8 +9,20 @@
         <div class="product-box">
           <div class="product-minimal">
           </div>
+          <div class='d-flex justify-content-end'>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sırala
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">Yenilər əvvəlcə</a></li>
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">Əvvəlcə ucuz</a></li>
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">Əvvəlcə baha</a></li>
+              </ul>
+            </div>
+          </div>
           <div class="product-main">
-            <h2 class="title">Brand</h2>
+            <h2 class="title">{% trans 'Brend' %}</h2>
             <div class="long_banner1">
               <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width:200px;">
               <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width:200px;">
@@ -29,7 +42,14 @@
                     {% else %}
                     <img src="{{ product.get_visual_product.cover_image.url }}" alt="Mens Winter Leathers Jackets" width="300" class="product-img hover">
                     {% endif %}
-                    </a>
+                  </a>
+                  {% if product.is_new == True %}
+                    <p class="showcase-badge angle pink">Yeni</p>
+                  {% endif %}
+
+                  {% if product.is_sale == True %}
+                    <p class="showcase-badge angle black">Endirimdə</p>
+                  {% endif %}
                   <div class="showcase-actions">
                     <button class="btn-action">
                       <ion-icon name="eye-outline"></ion-icon>
@@ -66,7 +86,7 @@
             </div>
           </div>
           <div class="see_more">
-            <button type="submit" class="show-more-btn seeMoreBrand rounded-4" id="{{brand}}">{% trans 'See More' %}</button>
+            <button type="submit" class="show-more-btn seeMoreBrand rounded-4" id="{{brand}}">{% trans 'Daha çox' %}</button>
           </div>
         </div>
       </div>

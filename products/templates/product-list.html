@@ -36,7 +36,7 @@
                   <!-- <p class="showcase-badge angle pink">new</p> -->
 
                   {% if product.product_version.first.is_sale == True %}
-                  <p class="showcase-badge angle black">Sale</p>
+                  <p class="showcase-badge angle black">{% trans 'Endirim' %}</p>
                   {% endif %}
                   
                 </div>
@@ -73,7 +73,7 @@
 
         </div>
         <div class="see_more">
-          <button type="submit" class="show-more-btn" id="seeMore">{% trans 'See More' %}</button>
+          <button type="submit" class="show-more-btn" id="seeMore">{% trans 'Daha çox' %}</button>
         </div>
       </div>
     </div>

@@ -1620,8 +1620,8 @@
                 <div class="row gx-lg-5 align-items-center">
                   <div class="col-lg-6 mb-5 mb-lg-0">
                     <h1 class="my-5 display-3 fw-bold ls-tight">
-                      {% trans 'The best offer' %} <br />
-                      <span class="text" style="color: #8bc53f;">{% trans 'for you' %}</span>
+                      {% trans 'Sizin üçün' %} <br />
+                      <span class="text" style="color: #8bc53f;">{% trans 'ən yaxşı təklif' %}</span>
                     </h1>
                     <p style="color: hsl(217, 10%, 50.8%)">
                       {% trans 'Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -1659,10 +1659,10 @@
 
                           <!-- Submit button -->
                           <button type="submit" class="btn btn-block mb-4 rounded-3 text-light" id="sign-in" style="background-color: #8bc53f;">
-                            {% trans 'Sign in' %}
+                            {% trans 'Daxil ol' %}
                           </button>
                           <span class="d-flex">
-                            {% trans "Don't have an account?" %} <a href="{% url 'register' %}" style="color: #8bc53f; margin-left: 5px;"> {% trans "Sign Up" %}</a>
+                            {% trans "Hesabınız yoxdur?" %} <a href="{% url 'register' %}" style="color: #8bc53f; margin-left: 5px;"> {% trans "Qeydiyyatdan keç" %}</a>
                           </span>
                           {% for error in form.non_field_errors %}
                           <div class="alert alert-danger">

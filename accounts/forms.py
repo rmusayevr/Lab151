@@ -18,7 +18,7 @@ class LoginForm(AuthenticationForm):
     }))
     password = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': 'form-control',
-        'placeholder': 'Password',
+        'placeholder': 'Şifrə',
     }), validators=(validate_password, ))
 
 
@@ -28,15 +28,15 @@ class RegistrationForm(UserCreationForm):
         label=_("Password"),
         strip=False,
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password", 'class': 'form-control',
-                                          'placeholder': 'Password'}),
+                                          'placeholder': 'Şifrə'}),
         help_text=password_validation.password_validators_help_text_html(),
     )
     password2 = forms.CharField(
         label=_("Password confirmation"),
         widget=forms.PasswordInput(attrs={"autocomplete": "new-password", 'class': 'form-control',
-                                          'placeholder': 'Confirm Password'}),
+                                          'placeholder': 'Təsdiq Şifrəsi'}),
         strip=False,
-        help_text=_("Enter the same password as before, for verification."),
+        help_text=_("Təsdiq üçün eyni şifrəni daxil edin."),
     )
 
     class Meta:
@@ -52,12 +52,12 @@ class RegistrationForm(UserCreationForm):
         widgets = {
             'first_name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'First Name',
+                'placeholder': 'Adınız',
                 'required': True
             }),
             'last_name': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Last Name',
+                'placeholder': 'Soyadınız',
                 'required': True
             }),
             'email': forms.EmailInput(attrs={
@@ -67,7 +67,7 @@ class RegistrationForm(UserCreationForm):
             }),
             'phone': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Phone number',
+                'placeholder': 'Telefon Nömrəsi',
                 'required': True
             }),
         }
