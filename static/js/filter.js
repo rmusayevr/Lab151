@@ -1,4 +1,4 @@
-let showMoreButton = document.querySelector("#seeMore")
+let showMoreButton = document.querySelector(".seeMore")
 const FilterLogic = {
   url: `${location.origin}/api/product-list/`,
 

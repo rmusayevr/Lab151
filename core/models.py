@@ -13,6 +13,7 @@ class AbstractModel(models.Model):
 
 class Slider(models.Model):
     slider = models.ImageField(upload_to = "Slider Images")
+    link = models.TextField()
 
     class Meta:
         verbose_name = "Slider Image"

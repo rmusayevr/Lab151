@@ -5,12 +5,16 @@ from .models import Brand, Product, ProductVersion, ProductCategory, ProductImag
 
 admin.site.register(Product)
 admin.site.register(ProductVersion)
-admin.site.register(ProductCategory)
+# admin.site.register(ProductCategory)
 admin.site.register(ProductImage)
 admin.site.register(Property)
 admin.site.register(PropertyOption)
-
 admin.site.register(Brand)
+
+@admin.register(ProductCategory)
+class ProductCategoryAdmin(admin.ModelAdmin):
+    ordering = ['created_at']
+    list_filter = ['created_at']
 
 @admin.register(ProductReview)
 class ProductReviewAdmin(admin.ModelAdmin):

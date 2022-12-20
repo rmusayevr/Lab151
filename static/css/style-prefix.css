@@ -2793,7 +2793,11 @@ footer {
             border-radius: 20px;
   }
 
-  .desktop-navigation-menu { display: block; }
+  .desktop-navigation-menu { 
+    display: block; 
+    background-color: #8bc53f;
+    height: 40px;
+  }
 
   .desktop-menu-category-list {
     position: relative;
@@ -2820,7 +2824,7 @@ footer {
     font-size: var(--fs-7);
     font-weight: var(--weight-600);
     text-transform: uppercase;
-    padding: 15px 0;
+    padding: 9px 0;
     -webkit-transition: var(--transition-timing);
     -o-transition: var(--transition-timing);
     transition: var(--transition-timing);
@@ -2961,7 +2965,7 @@ footer {
     transition: var(--transition-timing);
   }
 
-  .dropdown-list .dropdown-item a:hover { color: var(--salmon-pink); }
+  .dropdown-list .dropdown-item a:hover { color: #8bc53f; }
 
   .mobile-bottom-navigation { display: none; }
 

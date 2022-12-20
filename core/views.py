@@ -32,6 +32,7 @@ class BrandView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = ProductCategory.objects.filter(parent__isnull=True)
+        context['products'] = Product.objects.filter(brand=self.object)[:4]
         context['brands'] = Brand.objects.all()
         context['brand'] = self.kwargs.get('pk')
         return context

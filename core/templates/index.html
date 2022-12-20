@@ -30,7 +30,9 @@
 
       {% for banner in slider %}
           <div class="slider-item">
-            <img src="{{ banner.slider.url }}" alt="women's latest fashion sale" class="banner-img">
+            <a href="{{ banner.link }}">
+              <img src="{{ banner.slider.url }}" alt="women's latest fashion sale" class="banner-img">
+            </a>
           </div> 
       {% endfor %}
 
@@ -46,7 +48,7 @@
       - CATEGORY
     -->
 
-    {% include 'includes/brands_section.html' %}
+    {% comment %} {% include 'includes/brands_section.html' %} {% endcomment %}
 
     <div class="product-container">
       <div class="container">
@@ -55,7 +57,7 @@
           </div>
           <div class='d-flex justify-content-end'>
             <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Sırala
               </button>
               <ul class="dropdown-menu">
@@ -131,7 +133,7 @@
 
           </div>
           <div class="see_more">
-            <button type="submit" class="show-more-btn rounded-4" id="seeMore">{% trans 'Daha Çox' %}</button>
+            <button type="submit" class="show-more-btn rounded-4 seeMore">{% trans 'Daha Çox' %}</button>
           </div>
         </div>
       </div>
