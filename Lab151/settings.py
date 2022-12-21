@@ -181,7 +181,7 @@ LOGOUT_REDIRECT_URL = '/login/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'az'
 
 TIME_ZONE = 'UTC'
 
@@ -195,6 +195,7 @@ gettext = lambda s: s
 LANGUAGES = (
     ('ru', _('Russian')),
     ('en', _('English')),
+    ('az', _('Azerbaijan')),
 )
 
 LOCALE_PATHS = [
@@ -202,7 +203,7 @@ LOCALE_PATHS = [
 ]
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-MODELTRANSLATION_LANGUAGES = ('en', 'ru')
+MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'az')
 
 
 # Static files (CSS, JavaScript, Images)
