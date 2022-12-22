@@ -3322,14 +3322,14 @@ footer {
 
 
 
-@media (max-width: 1700px) {
+/* @media (max-width: 1700px) {
   .long_banner1 , .long_banner2{
     display: none;
   }
   #top-nav{
     display: none;
   }
-}
+} */
 .long_banner1{
 position: absolute;
 right: -200px;
