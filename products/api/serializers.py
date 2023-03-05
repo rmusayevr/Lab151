@@ -22,7 +22,7 @@ class CategoryListSerializer(serializers.ModelSerializer):
 
 class ProductListSerializer(serializers.ModelSerializer):
     # brand = BrandListSerializer(many=True)
-    category = CategoryListSerializer(many=True)
+    category = CategoryListSerializer()
     real_price = serializers.SerializerMethodField()
     visual_price = serializers.SerializerMethodField()
     visual_cover_image = serializers.SerializerMethodField()

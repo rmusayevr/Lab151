@@ -3,7 +3,6 @@
 {% load static %}
 {% block content %}
   <main>
-{% include 'includes/brands_section.html' %}
     <div class="product-container">
       <div class="container">
         <div class="product-box">
@@ -11,25 +10,25 @@
           </div>
           <div class='d-flex justify-content-end'>
             <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sırala
+              <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {% trans 'Sırala' %}
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">Yenilər əvvəlcə</a></li>
-                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">Əvvəlcə ucuz</a></li>
-                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">Əvvəlcə baha</a></li>
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">{% trans 'Yenilər əvvəlcə' %}</a></li>
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">{% trans 'Əvvəlcə ucuz' %}</a></li>
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">{% trans 'Əvvəlcə baha' %}</a></li>
               </ul>
             </div>
           </div>
           <div class="product-main">
             <h2 class="title">{% trans 'Brend' %}</h2>
             <div class="long_banner1">
-              <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width:200px;">
-              <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width:200px;">
+              <!-- <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width:200px;"> -->
+              <!-- <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width:200px;"> -->
             </div>
             <div class="long_banner2">
-              <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width: 200px;">
-              <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width: 200px;">
+              <!-- <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width: 200px;"> -->
+              <!-- <img src="{% static 'images/reklam banner 600x1600 png.png' %}" alt="" style="width: 200px;"> -->
             </div>
             <div class="product-grid" id="product-list">
               {% for product in products %}
@@ -44,34 +43,17 @@
                     {% endif %}
                   </a>
                   {% if product.is_new == True %}
-                    <p class="showcase-badge angle pink">Yeni</p>
+                    <p class="showcase-badge angle pink">{% trans 'Yeni' %}</p>
                   {% endif %}
-
                   {% if product.is_sale == True %}
-                    <p class="showcase-badge angle black">Endirimdə</p>
+                    <p class="showcase-badge angle black">{% trans 'Endirimdə' %}</p>
                   {% endif %}
-                  <div class="showcase-actions">
-                    <button class="btn-action">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </button>
-                    <button class="btn-action">
-                      <ion-icon name="bag-add-outline"></ion-icon>
-                    </button>
-                  </div>
                 </div>
                 <div class="showcase-content">
                   <a href="#" class="showcase-category">{{ product.category.first }}</a>
                   <a href="{{ product.get_absolute_url }}">
                     <h3 class="showcase-title">{{ product.title }}</h3>
                   </a>
-                  <div class="showcase-rating">
-                    {% for i in product.get_star_ratings %}
-                    <ion-icon name="star"></ion-icon>
-                    {% endfor %}
-                    {% for i in product.get_nonstar_ratings %}
-                    <ion-icon name="star-outline"></ion-icon>
-                    {% endfor %}
-                  </div>
                   <div class="price-box">
                     {% if product.get_visual_product.is_sale %}
                     <p class="price">₼{{ product.get_visual_product.get_price }}</p>

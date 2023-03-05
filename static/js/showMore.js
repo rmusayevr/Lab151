@@ -1,4 +1,4 @@
-let button = document.querySelector("#seeMore")
+let button = document.querySelector(".seeMore")
 let products = document.querySelector("#product-list")
 
 button.addEventListener("click", function() {
@@ -12,20 +12,6 @@ button.addEventListener("click", function() {
             break;
         }
         else {
-        function star() {
-          html = ''
-          for (let j = 0; j < data[i].star_ratings; j++) {
-            html += `<ion-icon name="star"></ion-icon>`
-          }
-          return html
-        }
-        function nonstar() {
-          html = ''
-          for (let j = 0; j < 5 - data[i].star_ratings; j++) {
-            html += `<ion-icon name="star-outline"></ion-icon>`
-          }
-          return html
-        }
         document.getElementById('product-list').innerHTML += `
                 <div class="showcase">
                 <div class="showcase-banner">
@@ -43,17 +29,12 @@ button.addEventListener("click", function() {
 
                 <div class="showcase-content">
 
-                  <a href="#" class="showcase-category">${data[i].category[0].name}</a>
+                  <a href="#" class="showcase-category">${data[i].category.name}</a>
 
                   <a href="${data[i]['detail_url']}">
                     <h3 class="showcase-title">${data[i].title}</h3>
                   </a>
 
-                  <div class="showcase-rating">
-                    ${star()}
-                    ${nonstar()}
-                  </div>
-                  
                   <div class="price-box">
                     ${data[i].is_sale ?
                     `<p class="price">₼${data[i].visual_price.toFixed(2)}</p>

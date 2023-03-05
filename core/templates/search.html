@@ -1620,7 +1620,7 @@
 
           <div class="product-main">
 
-            <h2 class="title">Search result</h2>
+            <h2 class="title">{% trans 'Axtarış Nəticəsi' %}</h2>
 
             <div class="product-grid">
               <!-- <div class="long_banner1">
@@ -1644,11 +1644,11 @@
                   <img src="{{ version.cover_image.url}}" alt="Product Images" class="product-img default" width="300">
                   <img src="{{ version.cover_image.url}}" alt="Product Images" class="product-img hover" width="300">
                   {% if product.is_new == True %}
-                  <p class="showcase-badge angle pink">Yeni</p>
+                  <p class="showcase-badge angle pink">{% trans 'Yeni' %}</p>
                   {% endif %}
 
                   {% if product.is_sale == True %}
-                  <p class="showcase-badge angle black">Endirimdə</p>
+                  <p class="showcase-badge angle black">{% trans 'Endirimdə' %}</p>
                   {% endif %}
                   <div class="showcase-actions">
                     <!-- <button class="btn-action">

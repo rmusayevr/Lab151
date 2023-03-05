@@ -3,7 +3,6 @@
 {% load static %}
 {% block content %}
   <main>
-{% include 'includes/brands_section.html' %}
 <div class="product-container">
   <div class="container">
     <div class="product-box"> 
@@ -11,13 +10,13 @@
       </div>
       <div class='d-flex justify-content-end'>
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sırala
+          <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {% trans 'Sırala' %}
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">Yenilər əvvəlcə</a></li>
-            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">Əvvəlcə ucuz</a></li>
-            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">Əvvəlcə baha</a></li>
+            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">{% trans 'Yenilər əvvəlcə' %}</a></li>
+            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">{% trans 'Əvvəlcə ucuz' %}</a></li>
+            <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">{% trans 'Əvvəlcə baha' %}</a></li>
           </ul>
         </div>
       </div>
@@ -47,7 +46,13 @@
               <img src="{{ product.get_visual_product.cover_image.url }}" alt="{{product.title}}" width="300" class="product-img hover">
               {% endif %}
              </a>
-              </a>
+            {% if product.is_new == True %}
+              <p class="showcase-badge angle pink">{% trans 'Yeni' %}</p>
+            {% endif %}
+
+            {% if product.is_sale == True %}
+              <p class="showcase-badge angle black">{% trans 'Endirimdə' %}</p>
+            {% endif %}
               <!-- <p class="showcase-badge">15%</p> -->
               
             </div>
@@ -56,14 +61,6 @@
               <a href="{{ product.get_absolute_url }}">
                 <h3 class="showcase-title">{{ product.title }}</h3>
               </a>
-              <div class="showcase-rating">
-                {% for i in product.get_star_ratings %}
-                <ion-icon name="star"></ion-icon>
-                {% endfor %}
-                {% for i in product.get_nonstar_ratings %}
-                <ion-icon name="star-outline"></ion-icon>
-                {% endfor %}
-              </div>
               <div class="price-box">
                 {% if product.get_visual_product.is_sale %}
                 <p class="price">₼{{ product.get_visual_product.get_price }}</p>

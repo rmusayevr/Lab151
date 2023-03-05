@@ -14,7 +14,7 @@
   <!--
       - favicon
     -->
-  <link rel="shortcut icon" href="{% static 'images/download.png' %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static 'images/logodu.png' %}" type="image/x-icon">
 
  
 
@@ -33,8 +33,22 @@
   <link rel="stylesheet" href="{% static 'css/style-prefix.css' %}">
   <link rel="stylesheet" href="{% static 'css/login.css' %}">
   <style>
-      .desktop-menu-category-list { gap: 42px !important; }
+      /* .desktop-menu-category-list { gap: 25px !important; } */
+      #drop:hover{
+        background-color: #8bc53f;
+        color: white;
+      }
 
+      @media (min-width: 1024px){
+        .desktop-navigation-menu{
+          height: 50px!important;
+        }
+
+      
+.dropdown-list {
+  left: auto!important;
+}
+}
   </style>
   {% block css %}
 
@@ -57,13 +71,13 @@
         <ul class="header-social-container">
 
           <li>
-            <a href="#" class="social-link">
+            <a href="https://www.facebook.com/lab151/" class="social-link">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
           </li>
 
           <li>
-            <a href="#" class="social-link">
+            <a href="https://www.instagram.com/lab_151/?hl=en" class="social-link">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
@@ -78,11 +92,11 @@
           {% get_current_language as CURRENT_LANGUAGE %}
           {% get_available_languages as AVAILABLE_LANGUAGES %}
           {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
-            <div class="dropdown block-language-wrapper hidden-xs"> <a role="button" data-bs-toggle="dropdown" data-bs-target="#" class="block-language dropdown-toggle" href="#"> {{ CURRENT_LANGUAGE }}<span class="caret"></span> </a>
+            <div class="dropdown block-language-wrapper hidden-xs"> <a style="color: grey;" role="button" data-bs-toggle="dropdown" data-bs-target="#" class="block-language dropdown-toggle" href="#"> {{ CURRENT_LANGUAGE }}<span class="caret"></span> </a>
               <ul class="dropdown-menu" role="menu">
                 {% for language in languages %}
                   <li>
-                    <a href="/{{ language.code }}/"
+                    <a id="drop"  href="{% if language.code != 'az' %} /{{ language.code }}/ {% else %} / {% endif %}"
                       class="dropdown-item {% if language.code == CURRENT_LANGUAGE %} active {% endif %}">
                       {{ language.name_local }}
                     </a>
@@ -102,7 +116,7 @@
       <div class="container">
 
         <a href="{% url 'home' %}" class="header-logo">
-          <img src="{% static 'images/logolab151.jpeg' %}" alt="Anon's logo" width="120">
+          <img src="{% static 'images/logodu.png' %}" alt="Anon's logo" width="120">
         </a>
 
         <!-- SEARCH -->
@@ -145,7 +159,7 @@
               <!-- <span class="fs-6">(+994) 999 88 77</span> -->
           </button>
           <span>
-            (+994) 999 88 77
+            (+994)50 888 81 51
           </span>
         </div>
 
@@ -202,7 +216,7 @@
                 <ul class="footer-nav-list">
       
                   <li class="footer-nav-item">
-                    <h2 class="nav-title">Contact</h2>
+                    <h2 class="nav-title">{% trans 'Əlaqə' %}</h2>
                   </li>
       
                   <li class="footer-nav-item flex">
@@ -236,32 +250,32 @@
                 <ul class="footer-nav-list">
       
                   <li class="footer-nav-item">
-                    <h2 class="nav-title">Bizi izlə</h2>
+                    <h2 class="nav-title">{% trans 'Bizi izlə' %}</h2>
                   </li>
       
                   <li>
                     <ul class="social-link">
       
                       <li class="footer-nav-item">
-                        <a href="#" class="footer-nav-link">
+                        <a href="https://www.facebook.com/lab151/" class="footer-nav-link">
                           <ion-icon name="logo-facebook"></ion-icon>
                         </a>
                       </li>
       
-                      <li class="footer-nav-item">
+                      <!-- <li class="footer-nav-item">
                         <a href="#" class="footer-nav-link">
                           <ion-icon name="logo-twitter"></ion-icon>
                         </a>
-                      </li>
+                      </li> -->
       
-                      <li class="footer-nav-item">
+                      <!-- <li class="footer-nav-item">
                         <a href="#" class="footer-nav-link">
                           <ion-icon name="logo-linkedin"></ion-icon>
                         </a>
-                      </li>
+                      </li> -->
       
                       <li class="footer-nav-item">
-                        <a href="#" class="footer-nav-link">
+                        <a href="https://www.instagram.com/lab_151/?hl=en" class="footer-nav-link">
                           <ion-icon name="logo-instagram"></ion-icon>
                         </a>
                       </li>
@@ -293,7 +307,7 @@
         <img src="{% static 'images/payment.png' %}" alt="payment method" class="payment-img">
 
         <p class="copyright">
-          &copy; <a href="#">uzum.media </a> {% trans 'bütün haqqlar qorunur' %}.
+          &copy; <a href="https://uzum.media/">uzum.media </a> {% trans 'bütün haqqlar qorunur' %}.
         </p>
 
       </div>

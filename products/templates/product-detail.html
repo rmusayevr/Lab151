@@ -97,7 +97,7 @@
   </div>
   <div class="container">
     <div class="product-main">
-      <h2 class="title">{% trans 'Related products' %}</h2>
+      <h2 class="title">{% trans 'Əlaqədar məhsullar' %}</h2>
       <div class="product-grid">
         {% for product in related_products %}
         <div class="showcase">
@@ -125,14 +125,6 @@
             <h3>
               <h3 class="showcase-title">{{ product.title }}</h3>
             </h3>
-            <div class="showcase-rating">
-              {% for i in product.get_star_ratings %}
-              <ion-icon name="star"></ion-icon>
-              {% endfor %}
-              {% for i in product.get_nonstar_ratings %}
-              <ion-icon name="star-outline"></ion-icon>
-              {% endfor %}
-            </div>
             <div class="price-box">
               {% if product.is_sale %}
               <p class="price">{{ product.get_price }}</p>

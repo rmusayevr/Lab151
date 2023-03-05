@@ -23,12 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5-as^vk64v-s$n)iutn!6#hc%%h#jt0hh$kfnr*p9804remz6e'
+SECRET_KEY = '?'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get("DEBUG", True) != "False"
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -49,13 +48,14 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
 
-
     'core',
     'blog',
     'order',
     'products',
     'accounts',
 
+    'rosetta',
+    'mptt',
 
 ]
 
@@ -135,17 +135,26 @@ WSGI_APPLICATION = 'Lab151.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'testdb',
-        'USER': 'testdbuser',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '5432'
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": os.environ.get("POSTGRES_DB", "testdb"),
+            "USER": os.environ.get("POSTGRES_USER", "testuser"),
+            "PASSWORD": os.environ.get(
+                "POSTGRES_PASSWORD", ""
+            ),
+            "HOST": os.environ.get("POSTGRES_HOST", "localhost"),
+            "PORT": os.environ.get("POSTGRES_PORT", "5432"),
+        }
+    }
 
 
 
@@ -178,8 +187,6 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 LANGUAGE_CODE = 'az'
 
@@ -193,17 +200,17 @@ USE_TZ = True
 
 gettext = lambda s: s
 LANGUAGES = (
+    ('az', _('Azerbaijan')),
     ('ru', _('Russian')),
     ('en', _('English')),
-    ('az', _('Azerbaijan')),
 )
 
 LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
 
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-MODELTRANSLATION_LANGUAGES = ('en', 'ru', 'az')
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'az'
+MODELTRANSLATION_LANGUAGES = ('az', 'en', 'ru')
 
 
 # Static files (CSS, JavaScript, Images)
@@ -215,11 +222,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'statics'
-
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+if DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR / 'static',
+    ]
+else:
+    STATIC_ROOT = BASE_DIR / 'static'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -235,14 +243,7 @@ REST_FRAMEWORK = {
     )
 
 }
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER ='g.heyderov@gmail.com'
-EMAIL_HOST_PASSWORD = 'ebcrdibkujskwrvp'
-
+TRANSLATABLE_MODEL_MODULES = ["core.models", "accounts.models", "order.models", "products.models"]
 
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
@@ -252,3 +253,4 @@ MESSAGE_TAGS = {
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
 }
+

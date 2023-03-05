@@ -11,6 +11,7 @@ from .forms import LoginForm, RegistrationForm
 from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
 from accounts.tokens import account_activation_token
+from products.models import ProductCategory
 
 User = get_user_model()
 
@@ -19,6 +20,11 @@ User = get_user_model()
 class CustomLoginView(LoginView):
     template_name = 'login.html'
     form_class = LoginForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = ProductCategory.objects.filter(parent__isnull=True)
+        return context
 
     def form_invalid(self, form):
         messages.error(self.request, 'Yanlış email və ya şifrə')
@@ -34,6 +40,11 @@ class RegisterView(CreateView):
     form_class = RegistrationForm
     template_name = 'register.html'
     success_url = reverse_lazy('login_page')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = ProductCategory.objects.filter(parent__isnull=True)
+        return context
 
     def form_valid(self, form):
         result = super().form_valid(form)

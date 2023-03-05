@@ -7,6 +7,7 @@ from .models import *
 from core.forms import *
 from products.models import *
 from blog.models import *
+from django.db.models import Q
 # Create your views here.
 
 class HomePage(TemplateView):
@@ -15,10 +16,11 @@ class HomePage(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['home'] = True
         context['slider'] = Slider.objects.all()
         context['banner'] = Banner.objects.all()
         context['categories'] = ProductCategory.objects.filter(parent__isnull=True)
-        context['products'] = Product.objects.order_by('-created_at').all()[:4]
+        context['products'] = Product.objects.order_by('-created_at').all()[:16]
         context['brands'] = Brand.objects.all()
         context['blogs'] = Blog.objects.order_by('-created_at').all()[:4]
         
@@ -61,8 +63,17 @@ class Filter(ListView):
         return context
 
 
-class Category(TemplateView):
+class CategoryView(TemplateView):
     template_name = "category.html"
+    model = ProductCategory
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = ProductCategory.objects.filter(parent__isnull=True)
+        context['products'] = Product.objects.filter(Q(category__parent=self.kwargs.get('pk')) | Q(category__pk=self.kwargs.get('pk')))
+        context['brands'] = Brand.objects.all()
+        context['category'] = self.kwargs.get('pk')
+        return context
 
 def product_search(request):
 

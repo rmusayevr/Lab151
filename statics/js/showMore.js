@@ -1,18 +1,31 @@
-let showMoreButton = document.querySelector(".seeMore")
-const FilterLogic = {
-  url: `${location.origin}/api/product-list/`,
+let button = document.querySelector(".seeMore")
+let products = document.querySelector("#product-list")
 
-  filterProduct(categoryId) {
-    let url = this.url
-    if (categoryId < 4) {
-      url = url + '?category__parent=' + categoryId
-    }
-    else {
-      url = url + '?category=' + categoryId
-    }
+button.addEventListener("click", function() {
+    let url = `${location.origin}/api/product-list/`;
+    let all_products = document.querySelectorAll(".showcase")
+    let count = all_products.length+4;
     fetch(url).then(response => response.json()).then(data => {
-      document.getElementById('product-list').innerHTML = ''
+        document.getElementById('product-list').innerHTML = ''
       for (let i in data) {
+        if (i == count || i == data.length ) {
+            break;
+        }
+        else {
+        function star() {
+          html = ''
+          for (let j = 0; j < data[i].star_ratings; j++) {
+            html += `<ion-icon name="star"></ion-icon>`
+          }
+          return html
+        }
+        function nonstar() {
+          html = ''
+          for (let j = 0; j < 5 - data[i].star_ratings; j++) {
+            html += `<ion-icon name="star-outline"></ion-icon>`
+          }
+          return html
+        }
         document.getElementById('product-list').innerHTML += `
                 <div class="showcase">
                 <div class="showcase-banner">
@@ -30,12 +43,17 @@ const FilterLogic = {
 
                 <div class="showcase-content">
 
-                  <a href="#" class="showcase-category">${data[i].category.name}</a>
+                  <a href="#" class="showcase-category">${data[i].category[0].name}</a>
 
                   <a href="${data[i]['detail_url']}">
                     <h3 class="showcase-title">${data[i].title}</h3>
                   </a>
 
+                  <div class="showcase-rating">
+                    ${star()}
+                    ${nonstar()}
+                  </div>
+                  
                   <div class="price-box">
                     ${data[i].is_sale ?
                     `<p class="price">₼${data[i].visual_price.toFixed(2)}</p>
@@ -49,18 +67,7 @@ const FilterLogic = {
 
               </div>    
                 `
-      }
-      showMoreButton.classList.add('d-none')
+            }
+        }
     })
-  }
-}
-
-
-
-let filterCategory = document.getElementsByClassName('categories')
-for (let i = 0; i < filterCategory.length; i++) {
-  filterCategory[i].addEventListener('click', function () {
-    let categoryId = this.getAttribute('data')
-    FilterLogic.filterProduct(categoryId)
-  })
-}
+})

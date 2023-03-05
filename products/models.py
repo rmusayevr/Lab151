@@ -5,17 +5,33 @@ from core.models import AbstractModel
 from math import ceil
 from django.urls import reverse
 # from ckeditor_uploader.fields import RichTextUploadingField
-
+from mptt.models import MPTTModel
+from mptt.fields import TreeForeignKey
 
 # Create your models here.
+class ProductCategory(MPTTModel):
+    name = models.CharField(max_length=255, verbose_name=_('Name'))
+    parent = TreeForeignKey('self', related_name="children", blank=True,
+                            null=True, on_delete=models.CASCADE, verbose_name="Üst Kateqoriya")
+  
+    def __str__(self):
+        return self.name
 
+    class MPTTMeta:
+            order_insertion_by = ['name']
+
+   
+
+    class Meta:
+        verbose_name = _('Product Category')
+        verbose_name_plural = _('Product Categories')
 
 class Product(AbstractModel):
     title = models.CharField(max_length=255, verbose_name=_('Title'))
     description = models.TextField(
         max_length=20000, verbose_name=_('Description'))
-    category = models.ManyToManyField(
-        'ProductCategory', related_name='product_categories', blank=True, verbose_name=_('Category'))
+    category = models.ForeignKey(
+        'ProductCategory', related_name='product_categories',on_delete=models.CASCADE,  blank=True, verbose_name=_('Category'))
     brand = models.ForeignKey('Brand', on_delete=models.CASCADE,
                               related_name='brand_products', verbose_name=_('Brand'), null=True, blank=True)
 
@@ -99,21 +115,7 @@ class ProductVersion(AbstractModel):
         verbose_name_plural = _('Product Versions')
 
 
-class ProductCategory(AbstractModel):
-    name = models.CharField(max_length=255, verbose_name=_('Name'))
-    parent = models.ForeignKey('self', on_delete=models.CASCADE,
-                               related_name='product_category', blank=True, null=True, verbose_name=_('Parent'))
 
-    def __str__(self):
-        return self.name
-
-    @property
-    def get_children(self):
-        return ProductCategory.objects.filter(parent=self)
-
-    class Meta:
-        verbose_name = _('Product Category')
-        verbose_name_plural = _('Product Categories')
 
 
 class ProductImage(AbstractModel):
@@ -173,8 +175,6 @@ class ProductReview(AbstractModel):
 class Brand(AbstractModel):
     name = models.CharField(max_length=255, verbose_name=_('Name'))
     slug = models.SlugField(max_length=255, verbose_name=_('Slug'))
-    image = models.ImageField(
-        upload_to='brand/', blank=True, null=True, verbose_name=_('Image'))
 
     def __str__(self):
         return self.name

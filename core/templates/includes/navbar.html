@@ -14,12 +14,12 @@
             </li>
             {% for category in categories %}
             <li class="menu-category">
-                <a href="#" data="{{category.id}}" class="menu-title categories">{{category.name}}</a>
+                <a href="{% if request.path == '/' or '/category/' in request.get_full_path %}# {% else%} {% url 'category' category.pk %} {% endif %}" data="{{category.id}}" class="menu-title categories">{{category.name}}</a>
                 {% if category.get_children.all %}
                 <ul class="dropdown-list">
                     {% for child in category.get_children %}
                     <li class="dropdown-item">
-                        <a href="#" data="{{child.id}}" class="categories">{{child.name}}</a>
+                        <a href="{% if request.path == '/' or '/category/' in request.get_full_path %}# {% else%} {% url 'category' child.pk %} {% endif %}" data="{{child.id}}" class="categories">{{child.name}}</a>
                     </li>
                     {% endfor %}
                 </ul>

@@ -48,7 +48,6 @@
       - CATEGORY
     -->
 
-    {% comment %} {% include 'includes/brands_section.html' %} {% endcomment %}
 
     <div class="product-container">
       <div class="container">
@@ -58,12 +57,12 @@
           <div class='d-flex justify-content-end'>
             <div class="dropdown">
               <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sırala
+                {% trans 'Sırala' %}
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">Yenilər əvvəlcə</a></li>
-                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">Əvvəlcə ucuz</a></li>
-                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">Əvvəlcə baha</a></li>
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=new">{% trans 'Yenilər əvvəlcə' %}</a></li>
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=cheap">{% trans 'Əvvəlcə ucuz' %}</a></li>
+                <li><a class="dropdown-item" href="{% url 'filter' %}?filter=expensive">{% trans 'Əvvəlcə baha' %}</a></li>
               </ul>
             </div>
           </div>
@@ -94,11 +93,11 @@
                   {% endif %}
                  </a>
                  {% if product.is_new == True %}
-                  <p class="showcase-badge angle pink">Yeni</p>
+                  <p class="showcase-badge angle pink">{% trans 'Yeni' %}</p>
                  {% endif %}
 
                  {% if product.is_sale == True %}
-                  <p class="showcase-badge angle black">Endirimdə</p>
+                  <p class="showcase-badge angle black">{% trans 'Endirimdə' %}</p>
                  {% endif %}
                   <!-- <p class="showcase-badge">15%</p> -->
                   
@@ -108,14 +107,14 @@
                   <a href="{{ product.get_absolute_url }}">
                     <h3 class="showcase-title">{{ product.title }}</h3>
                   </a>
-                  <div class="showcase-rating">
+                  <!-- <div class="showcase-rating">
                     {% for i in product.get_star_ratings %}
                     <ion-icon name="star"></ion-icon>
                     {% endfor %}
                     {% for i in product.get_nonstar_ratings %}
                     <ion-icon name="star-outline"></ion-icon>
                     {% endfor %}
-                  </div>
+                  </div> -->
                   <div class="price-box">
                     {% if product.get_visual_product.is_sale %}
                     <p class="price">₼{{ product.get_visual_product.get_price }}</p>
